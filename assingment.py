@@ -19,6 +19,7 @@ def fetchData(**kwargs):
     else:
         print("Confrimed Cases:",dict[state]["Confrimed"])
 def fetchData1(**kwargs):
+    state=kwargs["state"]
     prop=kwargs["prop"]
 
     if state not in dict:
@@ -27,5 +28,4 @@ def fetchData1(**kwargs):
         print(prop,"Cases",dict[state][prop])
 
 fetchData(state="Kerala")
-fetchData1(state="kerala",prop="Recovered")
-fetchData1(state="Kerala",prop="Death")
+fetchData1(state="Delhi",prop="Recovered")
