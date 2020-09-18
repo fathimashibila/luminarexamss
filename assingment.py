@@ -12,20 +12,21 @@ for line in f:
         dict[state] ={"State": state, "Confrimed": conf, "Recovered": recv, "Death": death}
 print(dict)
 def fetchData(**kwargs):
-    state=kwargs["state"]
-
-    if state not in dict:
-        print("No State")
-    else:
-        print("Confrimed Cases:",dict[state]["Confrimed"])
-def fetchData1(**kwargs):
-    state=kwargs["state"]
-    prop=kwargs["prop"]
-
-    if state not in dict:
-        print("No State")
-    else:
-        print(prop,"Cases",dict[state][prop])
+    if "param" not in kwargs:
+        state=kwargs["state"]
+        if state not in dict:
+            print("No State")
+        else:
+            print("Confrimed Cases in",state,":", dict[state]["Confrimed"])
+    if "param" in kwargs:
+        state = kwargs["state"]
+        param=kwargs["param"]
+        if state not in dict:
+            print("No State")
+        else:
+            print(param, "Cases in",state,":", dict[state][param])
 
 fetchData(state="Kerala")
-fetchData1(state="Delhi",prop="Recovered")
+fetchData(state="Kerala",param="Recovered")
+fetchData(state="Kerala",param="Death")
+
